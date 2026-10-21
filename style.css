@@ -1,0 +1,272 @@
+/* Black Myth: Wukong — palette, typography and reusable spacing */
+:root {
+  color-scheme: dark;
+  --primary-color: #c59a58;
+  --primary-light: #e5c58d;
+  --bg-color: #11100f;
+  --bg-soft: #191715;
+  --text-color: #f2eee6;
+  --muted-color: #aaa39a;
+  --accent-color: #a7402d;
+  --line-color: rgb(229 197 141 / 24%);
+  --font-body: "Be Vietnam Pro", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+  --space-7: 7rem;
+  --content-width: 1180px;
+  --transition: 260ms ease;
+}
+
+/* Base and accessibility */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--primary-light); outline-offset: 5px; }
+.button:focus-visible,
+.nav-buy:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; }
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 1rem;
+  transform: translateY(-150%);
+  background: var(--primary-color);
+  color: var(--bg-color);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* Header: brand, tagline and responsive navigation use Flexbox */
+.site-header {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 1rem clamp(1.25rem, 5vw, 5rem);
+  border-bottom: 1px solid rgb(255 255 255 / 9%);
+}
+
+.brand { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 0.7rem; }
+.brand-mark {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-light);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.brand-copy { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name { color: var(--text-color); font-size: 0.81rem; font-weight: 700; letter-spacing: 0.15em; }
+.brand-subtitle { margin-top: 0.3rem; color: var(--primary-color); font-size: 0.68rem; letter-spacing: 0.34em; }
+.header-tagline { margin: 0 auto 0 2rem; color: rgb(242 238 230 / 58%); font-family: var(--font-display); font-size: 1.15rem; font-style: italic; }
+.site-nav { display: flex; align-items: center; gap: clamp(0.8rem, 2vw, 2rem); }
+.site-nav a { color: rgb(242 238 230 / 78%); font-size: 0.75rem; transition: color var(--transition); }
+.site-nav a:hover { color: var(--primary-light); }
+.site-nav .nav-buy { padding: 0.55rem 0.85rem; border: 1px solid var(--line-color); color: var(--primary-light); }
+.nav-buy span { padding-left: 0.3rem; }
+
+/* Hero */
+.hero {
+  position: relative;
+  display: flex;
+  min-height: min(790px, 100svh);
+  align-items: center;
+  overflow: hidden;
+  padding: 9rem clamp(1.5rem, 10vw, 10rem) 6rem;
+  background: #171512;
+}
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(12 11 10 / 94%) 0%, rgb(12 11 10 / 80%) 38%, rgb(12 11 10 / 28%) 76%, rgb(12 11 10 / 55%) 100%),
+    linear-gradient(0deg, var(--bg-color) 0%, transparent 22%, transparent 74%, rgb(17 16 15 / 68%) 100%),
+    url("https://mms.businesswire.com/media/20240820013974/en/2220815/5/Black_Myth_Wukong_English_Key_Art.jpg?download=1") 70% center / cover;
+  transform: scale(1.02);
+}
+.hero-content { position: relative; z-index: 1; width: min(650px, 100%); }
+.eyebrow { display: flex; align-items: center; gap: 0.8rem; margin: 0 0 1.25rem; color: var(--primary-light); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.19em; text-transform: uppercase; }
+.eyebrow-line { width: 32px; height: 1px; background: var(--primary-color); }
+.hero h1 { margin: 0; font-family: var(--font-display); font-size: clamp(4rem, 8.6vw, 8.1rem); font-weight: 600; letter-spacing: 0.035em; line-height: 0.79; }
+.hero h1 span { display: inline-block; margin-top: 0.16em; color: var(--primary-light); font-size: 0.69em; letter-spacing: 0.24em; }
+.hero-description { max-width: 450px; margin: 2rem 0 1.8rem; color: rgb(242 238 230 / 76%); font-size: 0.9rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem; }
+.button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.75rem 1.35rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; transition: all 0.3s ease; }
+.button:hover { transform: translateY(-3px) scale(1.025); }
+.button-primary { background: var(--primary-color); color: #17130e; box-shadow: 0 8px 25px rgb(0 0 0 / 18%); }
+.button-primary:hover { background: linear-gradient(110deg, var(--primary-light), #f0d8a8); box-shadow: 0 0 15px var(--accent-color), 0 10px 32px rgb(197 154 88 / 24%); }
+.button-ghost { border: 1px solid rgb(242 238 230 / 35%); color: var(--text-color); }
+.button-ghost:hover { border-color: var(--primary-color); background: rgb(197 154 88 / 9%); color: var(--primary-light); box-shadow: 0 0 15px rgb(167 64 45 / 48%); }
+.button:active { transform: translateY(-1px) scale(0.985); }
+.cta-pulse { display: inline-block; }
+.play-icon { display: grid; width: 23px; height: 23px; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-size: 0.55rem; }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 3rem; color: rgb(242 238 230 / 58%); font-size: 0.66rem; letter-spacing: 0.05em; }
+.hero-meta i { width: 3px; height: 3px; border-radius: 50%; background: var(--primary-color); }
+.scroll-cue { position: absolute; z-index: 1; bottom: 2.2rem; left: clamp(1.5rem, 10vw, 10rem); display: flex; align-items: center; gap: 0.7rem; color: rgb(242 238 230 / 60%); font-size: 0.65rem; letter-spacing: 0.13em; text-transform: uppercase; }
+.scroll-cue span { color: var(--primary-light); font-size: 1rem; }
+.hero-seal { position: absolute; z-index: 1; right: clamp(1.5rem, 7vw, 7rem); bottom: 3.2rem; display: grid; width: 116px; height: 116px; place-items: center; border: 1px solid rgb(229 197 141 / 82%); border-radius: 50%; background: radial-gradient(circle, rgb(197 154 88 / 28%), rgb(17 16 15 / 76%) 68%); box-shadow: 0 0 32px rgb(197 154 88 / 48%), inset 0 0 20px rgb(197 154 88 / 30%); color: var(--primary-light); font-family: var(--font-display); font-size: 3.1rem; line-height: 0.92; text-align: center; text-shadow: 0 0 16px rgb(229 197 141 / 95%); opacity: 0.82; animation: seal-float 4.5s ease-in-out infinite; }
+.hero-seal::before,
+.hero-seal::after { position: absolute; border-radius: 50%; content: ""; pointer-events: none; }
+.hero-seal::before { inset: -18px; border: 1px dashed rgb(229 197 141 / 90%); border-top-color: transparent; border-right-color: var(--accent-color); box-shadow: 0 0 18px rgb(197 154 88 / 54%); animation: celestial-orbit 10s linear infinite; }
+.hero-seal::after { inset: -34px; border: 1px solid rgb(229 197 141 / 42%); border-bottom-color: var(--accent-color); border-left-color: transparent; box-shadow: 0 0 22px rgb(167 64 45 / 24%); animation: celestial-orbit 17s linear infinite reverse; }
+
+@keyframes celestial-orbit {
+  to { transform: rotate(1turn); }
+}
+
+@keyframes seal-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-11px); }
+}
+
+/* Story */
+.section-wrap { width: min(var(--content-width), calc(100% - 3rem)); margin-inline: auto; }
+.story { display: grid; grid-template-columns: 0.95fr 1fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); padding-block: var(--space-7); }
+.story-art { position: relative; min-height: 460px; }
+.story-art img { width: 100%; height: 460px; object-fit: cover; filter: saturate(0.8) brightness(0.88); }
+.art-frame { position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--line-color); pointer-events: none; }
+.art-caption { position: absolute; right: 0; bottom: 0; z-index: 1; padding: 1.1rem 1.4rem; background: rgb(17 16 15 / 85%); color: var(--muted-color); font-family: var(--font-display); font-size: 1.15rem; line-height: 1.3; }
+.art-caption strong { color: var(--primary-light); font-weight: 600; }
+.story-copy h2, .section-heading h2, .closing-cta h2 { margin: 0; font-family: var(--font-display); font-size: clamp(2.7rem, 5vw, 4.5rem); font-weight: 500; line-height: 0.98; }
+.story-copy h2 em, .section-heading h2 em, .closing-cta h2 em { color: var(--primary-light); font-weight: 500; }
+.story-lead { margin: 1.7rem 0 0.8rem; color: var(--text-color); font-family: var(--font-display); font-size: 1.45rem; }
+.story-copy > p:not(.eyebrow):not(.story-lead) { max-width: 500px; color: var(--muted-color); font-size: 0.87rem; }
+.text-link { display: inline-flex; align-items: center; gap: 0.75rem; margin-top: 1.1rem; color: var(--primary-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; }
+.text-link span { transition: transform var(--transition); }
+.text-link:hover span { transform: translateX(5px); }
+
+/* Feature cards: responsive CSS Grid */
+.features { padding-block: 1rem var(--space-7); }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+.section-intro { max-width: 390px; margin: 0 0 0.3rem; color: var(--muted-color); font-size: 0.82rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.feature-card { position: relative; display: flex; min-height: 350px; align-items: end; overflow: hidden; padding: 1.65rem; border: 1px solid rgb(255 255 255 / 8%); background-position: center; background-size: cover; transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
+.feature-card::before { position: absolute; inset: 0; background: linear-gradient(0deg, rgb(12 11 10 / 95%), rgb(12 11 10 / 30%) 72%); content: ""; transition: opacity var(--transition); }
+.feature-card:hover { transform: translateY(-8px); border-color: var(--primary-color); box-shadow: 0 10px 20px rgb(0 0 0 / 50%); }
+.feature-card:hover::before { opacity: 0.85; }
+.feature-visual-1 { background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_86c4b7462bba219a0d0b89931a35812b9f188976.600x338.jpg?t=1760601605"); }
+.feature-visual-2 { background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_968bbc9caceb7d798bd0c393e1e9b4c44ed6d835.600x338.jpg?t=1760601605"); }
+.feature-visual-3 { background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_63477e8ce2c0582b81c6ed576377d78e692b5642.600x338.jpg?t=1760601605"); }
+.feature-number { position: absolute; z-index: 1; top: 1.25rem; right: 1.4rem; color: rgb(242 238 230 / 54%); font-family: var(--font-display); font-size: 1.2rem; }
+.feature-card-content { position: relative; z-index: 1; }
+.feature-icon { color: var(--primary-light); font-size: 1.4rem; }
+.feature-card h3 { margin: 0.6rem 0 0.4rem; font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; }
+.feature-card p { max-width: 310px; margin: 0; color: rgb(242 238 230 / 70%); font-size: 0.78rem; }
+
+/* Gallery: image grid with captions */
+.gallery { padding-block: 0 var(--space-7); }
+.gallery-heading { align-items: end; }
+.gallery-heading .text-link { margin: 0 0 0.35rem; }
+.gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: repeat(2, minmax(190px, 1fr)); gap: 1rem; }
+.gallery-item { position: relative; min-height: 210px; overflow: hidden; margin: 0; border: 1px solid transparent; background: var(--bg-soft); transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
+.gallery-item:hover { transform: translateY(-8px); border-color: var(--primary-color); box-shadow: 0 10px 20px rgb(0 0 0 / 50%); }
+.gallery-large { grid-row: span 2; min-height: 430px; }
+.gallery-item::after { position: absolute; inset: 35% 0 0; background: linear-gradient(0deg, rgb(12 11 10 / 88%), transparent); content: ""; }
+.gallery-item img { width: 100%; height: 100%; min-height: inherit; object-fit: cover; filter: saturate(0.8) brightness(0.88); transition: transform 600ms ease, filter 600ms ease; }
+.gallery-item:hover img { transform: scale(1.1); filter: saturate(0.9) brightness(0.92); }
+.gallery-item figcaption { position: absolute; z-index: 1; right: 1.4rem; bottom: 1.1rem; left: 1.4rem; display: flex; flex-direction: column; }
+.gallery-item figcaption span { color: var(--primary-light); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.gallery-item figcaption strong { font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; }
+
+/* Closing call to action and footer */
+.closing-cta { position: relative; overflow: hidden; padding: 5.5rem 1.5rem; background: linear-gradient(90deg, rgb(15 13 11 / 91%), rgb(15 13 11 / 62%)), url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/ss_86c4b7462bba219a0d0b89931a35812b9f188976.600x338.jpg?t=1760601605") center 52% / cover; text-align: center; }
+.closing-inner { position: relative; z-index: 1; }
+.closing-cta .eyebrow { justify-content: center; }
+.closing-cta h2 { margin-bottom: 1.8rem; }
+.site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2rem; padding: 2rem clamp(1.5rem, 5vw, 5rem) 1.25rem; border-top: 1px solid rgb(255 255 255 / 8%); background: #0d0c0b; }
+.footer-brand .brand-mark { width: 36px; height: 36px; font-size: 1.5rem; }
+.footer-brand .brand-name { font-size: 0.7rem; }
+.footer-brand .brand-subtitle { font-size: 0.6rem; }
+.footer-credit, .copyright { color: var(--muted-color); font-size: 0.69rem; }
+.footer-credit { margin: 0 auto 0 0; }
+.footer-credit strong { color: var(--text-color); font-weight: 500; }
+.footer-links { display: flex; gap: 1.2rem; }
+.footer-links a { color: var(--muted-color); font-size: 0.68rem; transition: color var(--transition); }
+.footer-links a:hover { color: var(--primary-light); }
+.copyright { width: 100%; margin: 0; padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / 6%); }
+
+/* Tablet and mobile layouts */
+@media (max-width: 960px) {
+  .site-header { flex-wrap: wrap; gap: 0.8rem 1.5rem; }
+  .header-tagline { margin-left: auto; }
+  .site-nav { order: 3; width: 100%; justify-content: center; gap: clamp(0.8rem, 4vw, 2rem); }
+  .hero { min-height: 760px; padding-top: 12rem; }
+  .hero-backdrop { background-position: center, center, 70% center; }
+  .story { gap: 3rem; }
+}
+
+@media (max-width: 680px) {
+  :root { --space-7: 4.5rem; }
+  html { scroll-padding-top: 1rem; }
+  .site-header { position: absolute; min-height: auto; padding: 1rem 1.2rem; }
+  .brand-mark { width: 37px; height: 37px; font-size: 1.55rem; }
+  .brand-name { font-size: 0.7rem; }
+  .brand-subtitle { font-size: 0.59rem; }
+  .header-tagline { display: none; }
+  .site-nav { justify-content: flex-start; gap: 1.15rem; overflow-x: auto; padding: 0.35rem 0 0.55rem; scrollbar-width: none; }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { flex: 0 0 auto; font-size: 0.68rem; }
+  .site-nav .nav-buy { padding: 0.35rem 0.55rem; }
+  .hero { min-height: 720px; min-height: 100svh; padding: 12rem 1.4rem 7rem; }
+  .hero-backdrop { background-image: linear-gradient(90deg, rgb(12 11 10 / 92%), rgb(12 11 10 / 48%)), linear-gradient(0deg, var(--bg-color), transparent 30%, rgb(17 16 15 / 50%)), url("https://mms.businesswire.com/media/20240820013974/en/2220815/5/Black_Myth_Wukong_English_Key_Art.jpg?download=1"); background-position: center, center, 68% center; }
+  .hero h1 { font-size: clamp(3.6rem, 17vw, 6.5rem); }
+  .hero-description { max-width: 380px; margin-top: 1.5rem; font-size: 0.82rem; }
+  .hero-meta { gap: 0.55rem; margin-top: 2rem; font-size: 0.57rem; }
+  .scroll-cue { bottom: 1.4rem; left: 1.4rem; font-size: 0.58rem; }
+  .hero-seal { right: 1.5rem; bottom: 1.4rem; width: 90px; height: 90px; font-size: 2.5rem; }
+  .hero-seal::before { inset: -13px; }
+  .hero-seal::after { inset: -24px; }
+  .section-wrap { width: min(100% - 2.5rem, var(--content-width)); }
+  .story { grid-template-columns: 1fr; gap: 3rem; }
+  .story-art, .story-art img { min-height: 330px; height: 330px; }
+  .art-frame { inset: 12px -10px -12px 12px; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .section-intro { max-width: 520px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-card { min-height: 300px; }
+  .gallery-heading { gap: 0.5rem; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 300px 190px; gap: 0.7rem; }
+  .gallery-large { grid-column: 1 / -1; grid-row: auto; min-height: 300px; }
+  .gallery-item { min-height: 190px; }
+  .gallery-item figcaption { right: 0.8rem; bottom: 0.7rem; left: 0.8rem; }
+  .gallery-item figcaption strong { font-size: 1.05rem; }
+  .gallery-item figcaption span { font-size: 0.52rem; }
+  .closing-cta { padding-block: 4.5rem; }
+  .site-footer { justify-content: flex-start; gap: 1rem 1.4rem; padding-inline: 1.25rem; }
+  .footer-credit { width: calc(100% - 170px); margin: 0; }
+  .footer-links { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
