@@ -113,4 +113,7 @@ C. Hiệu ứng :hover & :focus tự viết bằng External CSS (style.css):
 - **Cách sửa prompt (Debug prompt):** ...
 ## 3. Đánh giá cá nhân về quá trình Vibe Coding
 - AI đã giúp bạn tiết kiệm thời gian ở phần nào nhất?
+=> Viết mã nguồn thô (Boilerplate Code): AI giúp khởi tạo cực kỳ nhanh cấu trúc khung trang HTML5, khai báo đầy đủ các thẻ Semantic (<header>, <nav>, <main>, <section>, <footer>) và tạo sẵn danh sách biến CSS Variables (:root) chỉ trong vài giây.
+
 - Bài học rút ra khi đặt câu hỏi (Prompt) cho AI trong thiết kế web?
+=> Càng chi tiết, kết quả càng chính xác: Đặt prompt mang tính chiến lược theo quy trình từng bước (Step-by-step) thay vì viết một yêu cầu chung chung. Phân chia rõ ràng giữa cấu trúc HTML, styling CSS và các hiệu ứng JS/Thư viện sẽ giúp AI sinh code chuẩn xác ngay từ đầu.
