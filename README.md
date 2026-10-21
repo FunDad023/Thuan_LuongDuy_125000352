@@ -25,7 +25,5 @@ Trang Landing Page giới thiệu tựa game bom tấn **Black Myth: Wukong**, �
 .
 ├── index.html          # File HTML chính chứa cấu trúc Semantic HTML5 & CDN Libraries
 ├── style.css           # External CSS quản lý CSS Variables, Layout & Hover Effects
-├── assets/             # Thư mục chứa hình ảnh, logo và tài nguyên đa phương tiện
-│   ├── images/
-│   └── icons/
+├── PROMPT_LOG.md             # Thư mục chứa hình ảnh, logo và tài nguyên đa phương tiện
 └── README.md           # Tài liệu hướng dẫn dự án
